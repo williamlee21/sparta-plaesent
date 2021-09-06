@@ -182,6 +182,11 @@
       }
     }
   }
+  
+  input:focus {
+    outline: none;
+  }
+
   a {
     color: inherit;
     padding-bottom: 1px;
