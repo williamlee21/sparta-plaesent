@@ -1,0 +1,330 @@
+@import "./include-media.scss";
+
+@font-face {
+  font-family: ACaslonPro;
+  src: url("./fonts/ACaslonPro-Regular.otf");
+}
+
+@font-face {
+  font-family: Springville;
+  src: url("./fonts/Springville-Regular3.otf");
+}
+
+* {
+  box-sizing: border-box;
+  font-family: ACaslonPro;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  display: flex;
+  min-height: 50px;
+  z-index: 999;
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .logo {
+    width: auto;
+    height: 2rem;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .nav-items {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    justify-content: space-between;
+    color: gray;
+    &:hover {
+      cursor: pointer;
+    }
+
+    .bar {
+      background-color: gray;
+      width: 0.5rem;
+      height: 1px;
+      margin-bottom: 1px;
+    }
+  }
+}
+
+.carousel {
+  white-space: pre-wrap;
+
+  .carousel-text {
+    color: white;
+    position: absolute;
+    top: 35%;
+    left: 10%;
+  }
+
+  .carousel-img {
+    width: 100%;
+    object-fit: cover;
+    min-height: 580px;
+    filter: brightness(0.4);
+  }
+
+  .carousel-title {
+    font-family: Springville;
+    font-size: 3.5rem;
+  }
+
+  .carousel-date {
+    font-size: 2rem;
+    margin: 2% 0;
+  }
+
+  .carousel-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+.masonry-container {
+  width: 90%;
+  margin: 0 auto;
+
+  .masonry-grid {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    width: auto;
+  }
+
+  .masonry-col {
+    background-clip: padding-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.masonry-item {
+  border-bottom: 1px solid gray;
+  padding-bottom: 5vw;
+  margin-bottom: 5vw;
+  width: 90%;
+
+  &:hover {
+    cursor: pointer;
+    .card-title {
+      text-decoration: underline;
+    }
+  }
+
+  .card-img {
+    max-width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .card-date {
+    font-size: 0.8rem;
+    margin: 4% 0;
+    color: gray;
+  }
+
+  .card-title {
+    font-family: Springville;
+    font-size: 2rem;
+    margin: 8% 0;
+  }
+
+  .card-author {
+    span {
+      text-transform: uppercase;
+      border-bottom: 1px solid;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 4rem;
+
+  .newsletter-form {
+    width: 33.33%;
+
+    .form-group {
+      width: 80%;
+      margin: 2rem auto 1rem;
+      display: flex;
+
+      .email-input {
+        width: 75%;
+        border-radius: 0px;
+        border: 1px solid black;
+        font-size: 1rem;
+        padding: 5px;
+      }
+
+      .submit-btn {
+        -webkit-appearance: none;
+        width: 25%;
+        border-radius: 0px;
+        border: 1px solid black;
+        line-height: 0;
+        color: white;
+        background-color: black;
+      }
+    }
+  }
+  a {
+    color: inherit;
+    padding-bottom: 1px;
+    text-decoration-line: none;
+    border-bottom: 1px solid black;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .alert {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .danger {
+    color: red;
+  }
+}
+
+.app {
+  @include media("<=mobile") {
+    .header {
+      .logo {
+        height: 1.5rem;
+      }
+      .nav-items {
+        font-size: 0.5rem;
+        width: 30%;
+      }
+    }
+    .carousel {
+      .carousel-text {
+        left: 2%;
+      }
+      .carousel-title {
+        font-size: 1.75rem;
+      }
+      .carousel-date {
+        font-size: 1.25rem;
+      }
+      .carousel-subtitle {
+        font-size: 0.75rem;
+      }
+    }
+    .footer {
+      margin-top: 2rem;
+      .newsletter-form {
+        width: 100%;
+      }
+      .submit-btn {
+        font-size: 12px;
+      }
+      .footer-links {
+        font-size: 0.5rem;
+      }
+    }
+  }
+
+  @include media(">=mobile", "<tabletSM") {
+    .header {
+      .logo {
+        height: 1.5rem;
+      }
+      .nav-items {
+        font-size: 0.5rem;
+        width: 25%;
+      }
+    }
+    .carousel {
+      .carousel-title {
+        font-size: 2rem;
+      }
+      .carousel-date {
+        font-size: 1.5rem;
+      }
+      .carousel-subtitle {
+        font-size: 1rem;
+      }
+    }
+    .footer {
+      margin-top: 2rem;
+      .newsletter-form {
+        width: 75%;
+      }
+      .footer-links {
+        font-size: 0.6rem;
+      }
+    }
+  }
+
+  @include media(">=tabletSM", "<tablet") {
+    .header {
+      .nav-items {
+        width: 20%;
+      }
+    }
+
+    .footer {
+      margin-top: 2rem;
+      .newsletter-form {
+        width: 50%;
+      }
+      .footer-links {
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  @include media(">=tablet", "<desktop") {
+    .header {
+      .nav-items {
+        width: 20%;
+      }
+    }
+
+    .footer {
+      .newsletter-form {
+        width: 33.33%;
+      }
+      .footer-links {
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  @include media(">=desktop") {
+    max-width: 1440px;
+    margin: 0 auto;
+
+    .header {
+      .nav-items {
+        width: 15%;
+      }
+    }
+
+    .footer {
+      .newsletter-form {
+        width: 33.33%;
+      }
+      .footer-links {
+        font-size: 0.75rem;
+      }
+    }
+  }
+}
